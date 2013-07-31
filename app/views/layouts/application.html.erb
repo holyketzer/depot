@@ -11,11 +11,13 @@
 		<%= image_tag("logo.png") %>
 		<%= @page_title || "Pragmatic Bookshelf" %>
 	</div>
-	<div id="columns">
+	<div id="columns">		
 		<div id="side">
-			<div id="cart">
-				<%= render @cart %>
-			</div>
+			<% if @cart %>
+				<%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+					<%= render @cart %>
+				<% end %>
+			<% end %>
 
 			<ul>
 				<li><a href="#">Home</a></li>
