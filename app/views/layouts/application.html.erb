@@ -7,10 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>
-	<div id="banner">
-		<%= image_tag("logo.png") %>
-		<%= @page_title || "Pragmatic Bookshelf" %>
-	</div>
+	<%= link_to store_path do %>
+		<div id="banner">
+			<%= image_tag("logo.png") %>
+			<%= @page_title || "Pragmatic Bookshelf" %>
+		</div>
+	<% end %>
 	<div id="columns">		
 		<div id="side">
 			<% if @cart %>
