@@ -42,3 +42,17 @@ Product.create(title: 'Rails Test Prescriptions',
       </p>},
   image_url: 'rtp.jpg',
   price: 34.95)
+
+Product.create(title: 'JavaScript',
+  description: 
+    %{<p>
+        JavaScript, all time, all side, best language.
+      </p>},
+  image_url: 'js.jpg',
+  price: 55.00)
+
+PaymentType.delete_all
+
+PaymentType.create(:name => "Check")
+PaymentType.create(:name => "Credit card")
+PaymentType.create(:name => "Purchase order")
