@@ -3,6 +3,7 @@
 one:
   product: ruby
   order: one
+  price: 17.95
 
 two:
   product: ruby
