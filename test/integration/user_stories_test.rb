@@ -90,4 +90,18 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_equal "Ship date was changed", mail.subject
     assert_match /#{order.ship_date}/, mail.body.encoded
   end
+
+  test "user can try view not exist cart" do
+    id = Cart.all.max_by {|c| c.id }.id + 1
+
+    get_via_redirect cart_path(id)
+
+    assert_response :success
+    assert_template "index"
+
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal 'sale@charodiyka.ru', mail[:from].value
+    assert_equal "Error occured in depot application.", mail.subject
+    assert_match /Attempt to access invalid cart/, mail.body.encoded
+  end
 end

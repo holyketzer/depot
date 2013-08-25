@@ -28,4 +28,10 @@ class OrderNotifier < ActionMailer::Base
 
     mail to: order.email, subject: 'Ship date was changed'
   end
+
+  def log_error(msg)
+    @msg = msg
+
+    mail to: "admin@depot.com", subject: 'Error occured in depot application.'
+  end
 end
