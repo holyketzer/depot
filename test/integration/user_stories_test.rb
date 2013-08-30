@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UserStoriesTest < ActionDispatch::IntegrationTest
   fixtures :products
+  fixtures :users
 
   test "buying a product" do
     LineItem.delete_all
@@ -56,6 +57,8 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
   end
 
   test "admin change order ship date" do
+    login
+
     order = orders(:one)
     assert_nil order.ship_date
     new_ship_date = DateTime.now.to_date
@@ -91,7 +94,9 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_match /#{order.ship_date}/, mail.body.encoded
   end
 
-  test "user can try view not exist cart" do
+  test "admin can't open not existing cart" do
+    login
+
     id = Cart.all.max_by {|c| c.id }.id + 1
 
     get_via_redirect cart_path(id)
@@ -104,4 +109,17 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_equal "Error occured in depot application.", mail.subject
     assert_match /Attempt to access invalid cart/, mail.body.encoded
   end
+
+  private 
+    def login
+      admin = users(:one)
+
+      get login_path
+      assert_response :success
+      assert_template "new"
+
+      post_via_redirect login_path, { name: admin.name, password: 'secret' }
+      assert_response :success
+      assert_template "index"
+    end
 end
