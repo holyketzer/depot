@@ -26,7 +26,16 @@
 				<li><a href="#">Questions</a></li>
 				<li><a href="#">News</a></li>
 				<li><a href="#">Contact</a></li>				
-			</ul>			
+			</ul>	
+
+			<% if session[:user_id] %>
+				<ul>
+					<li><%= link_to 'Orders', orders_path %></li>
+					<li><%= link_to 'Products', products_path %></li>
+					<li><%= link_to 'Users', users_path %></li>
+				</ul>
+				<%= button_to 'Logout', logout_path, method: :delete %>
+			<% end %>
 			<div class='time'><%= Time.now %></div>
 		</div>	
 		<div id="main">
