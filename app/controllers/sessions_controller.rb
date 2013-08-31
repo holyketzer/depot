@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authorize
+  before_action :create_user_if_db_is_clean, only: :create
 
   def new
   end
@@ -18,4 +19,13 @@ class SessionsController < ApplicationController
   	session[:user_id] = nil
   	redirect_to store_url, notice: "Logged out"
   end
+
+  private
+    def create_user_if_db_is_clean
+      if User.count.zero?
+        User.create(:name => params[:name],
+                    :password => params[:password],
+                    :password_confirmation => params[:password])
+      end
+    end
 end

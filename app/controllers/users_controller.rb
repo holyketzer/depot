@@ -41,7 +41,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     authenticated = @user.authenticate(params[:user].delete(:old_password))
-
     respond_to do |format|
       if authenticated && @user.update(user_params)
         format.html { redirect_to users_url, notice: "User #{@user.name} was successfully updated." }
