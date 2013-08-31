@@ -20,6 +20,12 @@
       <%= f.label :name, 'Name: ' %><br>
       <%= f.text_field :name, size: 40 %>
     </div>
+    <% if controller.action_name == 'edit' || controller.action_name == 'update' %>
+      <div class="field">
+        <%= f.label :old_password, 'Old password: ' %><br>
+        <%= f.password_field :old_password, size: 40 %>
+      </div>
+    <% end %>
     <div class="field">
       <%= f.label :password, 'Password: ' %><br>
       <%= f.password_field :password, size: 40 %>
