@@ -110,6 +110,14 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_match /Attempt to access invalid cart/, mail.body.encoded
   end
 
+  test "not logged user can't access user administration" do
+    get users_path
+
+    assert_response :redirect
+    follow_redirect!
+    assert_equal "/login", path
+  end
+
   private 
     def login
       admin = users(:one)

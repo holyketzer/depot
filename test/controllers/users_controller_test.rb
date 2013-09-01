@@ -35,7 +35,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user" do
-    patch :update, id: @user, user: { name: @user.name, password: 'secret', password_confirmation: 'secret' }
+    patch :update, id: @user, user: { name: @user.name, old_password: 'secret', password: 'secret', password_confirmation: 'secret' }
     assert_redirected_to users_path
   end
 
