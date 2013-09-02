@@ -27,7 +27,7 @@
     <%= f.label :payment_type_id %><br>
     <%= collection_select :order, :payment_type_id, PaymentType.all, :id, :name %>
   </div>
-  <% if current_page?(edit_order_path(@order)) %>
+  <% if @order.id && current_page?(edit_order_path(@order)) %>
     <div class="field">
       <%= f.label :ship_date %><br>
       <%= f.date_field :ship_date %>
