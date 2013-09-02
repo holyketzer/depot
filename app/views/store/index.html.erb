@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<h1>Your pragmatic Catalog</h1>
+<h1><%= t('.title_html') %></h1>
 
 <small>You have visited us <%= pluralize(@visit_count, 'time') %> .</small>
 
@@ -15,7 +15,7 @@
 				<%= sanitize(product.description) %>
 				<div class="price_line">
 					<span class="price"><%= number_to_currency(product.price, unit: "руб.", separator: ".", delimiter: "", format: "%n %u") %></span>
-					<%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+					<%= button_to t('.add_html'), line_items_path(product_id: product), remote: true %>
 				</div>
 			</div>
 		<% end %>
