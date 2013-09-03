@@ -24,7 +24,7 @@ Depot::Application.routes.draw do
       post 'decrement', on: :member
     end
     resources :carts
-    root 'store#index', as: 'store'
+    root 'store#index', as: 'store', via: :all
   end
 
   # Example of regular route:
