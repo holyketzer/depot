@@ -8,6 +8,26 @@ ru:
         delimiter: '.'
         format: '%n&nbsp;%u'
 
+  activerecord:
+    errors:
+     messages:
+       inclusion: 'должно быть включено'
+       blank: 'не может быть пустым'
+    models:
+      order: 'Заказ'
+    attributes:
+      order:
+        address: 'Адрес'
+        name: 'Имя'
+        email: 'E-mail'
+        payment_type_id: 'Оплата'
+  errors:
+    template:
+      body: 'Перепроверьте и заполните пожалуйста форму полностью'
+      header:
+        one: 'Ошибка при проверке %{model}'
+        other: '%{count} ошибки при проверке %{model}'
+
   layouts:
     application:
       title: "Книжная полка"
@@ -27,3 +47,16 @@ ru:
       title: 'Ваша корзина'
       empty: 'Очистить корзину'
       checkout: 'Заказать'
+
+  orders:
+    new:
+      legend: 'Введите информацию о доставке'      
+    form:
+      name: 'Имя'
+      address_html: 'Адрес'
+      email: 'E-mail'
+      payment_type: 'Оплата'
+      payment_promt_html: 'Выберите метод оплаты'
+      submit: 'Разместить заказ'
+
+  thanks: 'Спасибо за ваш заказ'
