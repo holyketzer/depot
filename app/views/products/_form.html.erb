@@ -16,6 +16,10 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :locale %><br>    
+    <%= f.select :locale, options_for_select(LANGUAGES, I18n.locale.to_s) %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description, rows: 6 %>
   </div>

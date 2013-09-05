@@ -13,9 +13,11 @@ class Product < ActiveRecord::Base
 		message: 	'must be a URL for GIF, JPG or PNG image.', 
 	}
 
+	scope :all_for_current_locale, -> { where(:locale => I18n.locale).order(:title) }
+
 	def self.latest
 		Product.order(:updated_at).last
-	end
+	end	
 
 	private
 

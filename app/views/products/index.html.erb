@@ -9,6 +9,7 @@
       <td class="list_description">
         <dl>
           <dt><%= product.title %></dt>
+          <dd class="language"><%= product.locale %></dd>
           <dd><%= truncate(strip_tags(product.description), length: 80) %></dd>
         </dl>
       </td>
