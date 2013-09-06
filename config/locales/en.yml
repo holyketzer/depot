@@ -59,5 +59,8 @@ en:
       payment_type: 'Pay with'
       payment_promt_html: 'Select a payment method'
       submit: 'Place order'
+      check: 'Check'
+      credit_card: 'Credit card'
+      purchase_order: 'Purchase order'
 
   thanks: 'Thank you for your order.'

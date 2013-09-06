@@ -58,5 +58,8 @@ ru:
       payment_type: 'Оплата'
       payment_promt_html: 'Выберите метод оплаты'
       submit: 'Разместить заказ'
+      check: 'Чек'
+      credit_card: 'Кредитная карта'
+      purchase_order: 'Оплата при доставке'
 
   thanks: 'Спасибо за ваш заказ'

@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :payment_type_id, t('.payment_type') %><br>
-    <%= collection_select :order, :payment_type_id, PaymentType.all, :id, :name, { include_blank: t('.payment_promt_html')} %>
+    <%= collection_select :order, :payment_type_id, PaymentType.all, :id, :localized_name, { include_blank: t('.payment_promt_html')} %>
   </div>
   <% if @order.id && current_page?(edit_order_path(@order)) %>
     <div class="field">
